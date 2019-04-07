@@ -1,0 +1,122 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Anagram</title>
+    </head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <style>
+    body{background:teal;}
+         h2{//border:1px solid white; width:60%;border-radius:0 5em 5em 0;//background-color:white;color:Orange;padding:10px;margin-left:250px;}
+
+     h1{//border:1px solid white; width:40%;color:orange;padding:10px;}
+     #lgn{font-size:18px;color:white; padding:8px;border-radius:3em 0em 0em 3em;background:orange;box-shadow:3px 10px 20px #333;}
+     #lgn:hover{color:orange;background:white;border:white;}
+     .spanel{border-bottom:1px dotted silver; width:50%;height:100px;margin-left:220px;float:left;pading-left:10px; padding-right:10px;}
+     .secpanel{//border:1px solid #333;height:150px;width:350px;margin-left:320px;float:left; margin-top:20px;}
+     button{width:180px;margin-left:10px; padding-left:15px;}
+       #samp{float:left;//border:1px solid red; margin-left:15px; padding:10px;}
+
+        p.one {
+
+    //background-color:green;
+    //border-radius:3em 3em 3em;
+    font-family:Times New Roman;
+   // padding:5px;
+    color:White;
+    font-size:14px;
+    float:left;
+    //margin-top:40px;
+    margin-left:380px;
+    //border:1px solid #333;
+    float:right;
+    }
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #D3D3D3;
+    color: black;
+    text-align: center;
+}
+
+     table, th, td {
+     border: 1px solid black;
+
+     }
+     th{
+       background-color: #D3D3D3;
+     }
+     p#welcome{
+       color: black;
+       margin-top: 12px;
+       font-size:20px;
+     }
+     p.EditButton{
+       background-color: #D3D3D3;
+
+     }
+
+    </style>
+    <body>
+
+
+    <br/>
+    {% if user %}
+        <div class="main-page">
+            <h3 class="title1"><p align="center"><h2>Welcome to Anagram Application</h2></p></h3>
+            <hr>
+
+              <div class="spanel">
+                <p> <b>Search Anagram Word</b></p>
+                <br>
+                 <form method="post" action="/search">
+                    <div class="row" align="center">
+                    <label for="focusedinput" >Enter words:</label>
+                    <input type="text" name="word" required=True class="form-control1" id="focusedinput" placeholder="Enter words to search">
+
+                        <button type="submit" value="add" name="button" id="btn_click"  class="btn btn-primary btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> Submit</button>
+                    </div>
+                 </form>
+            </div>
+
+               <div class="secpanel">
+
+                   <div id="samp">
+
+                <form method="get" action="/add">
+
+
+                  <button type="submit" value="add" name="add" id="btn_click"  class="btn btn-primary btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> ADD NEW WORD</button>
+
+            </form>
+               </div>
+
+                <div id="samp">
+
+                 <form method="post" action="/show">
+
+
+
+                  <button type="submit" value="show" name="show" id="btn_click" class = "btn btn-danger">SHOW ALL WORDS</button>
+
+
+            </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div align="center" id="lc"><p class="one" align="center">Press here to &nbsp;   <a id="lgn" href='{{ url }}'>{{ url_string }}</a></p></div>
+        <div class="footer"> </div>
+    {% else %}
+        <center><h1>Anagram Application</h1></center>
+    <hr>
+         <div align="center" id="lc"><p class="one" align="center">Press here to &nbsp;<a id="lgn" href='{{ url }}'>{{ url_string }}</a></p></div>
+    {% endif %}
+
+</body>
+</html>
